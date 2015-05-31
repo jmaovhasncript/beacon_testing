@@ -1,0 +1,244 @@
+
+
+#tango_ad_container{
+    width: 100%;
+    overflow: hidden;
+    background-color: #ddd;
+    height: 260px;
+}
+
+
+.innerContainer{
+    width: 3000px;
+    height: 100%;
+    position: relative;
+    -webkit-transition: all 0.3s;
+}
+.carousalItem{
+    float: left;
+    width: 296px;
+    height: 207px;
+    position: relative;
+}
+
+.carousalItem img{
+    width: 296px;
+    height: auto;
+    float: left;
+}
+.tango_image_header{
+    width: 100%;
+}
+
+.sprite {
+    background: url("images/sprite.png") no-repeat;
+}
+
+.meep{
+    width: 50px;
+    height: 50px;
+    background-position: 8px -66px;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    /* -webkit-transform: scale(.5); */
+    /* display: inline-block; */
+    margin-left: 148px;
+    -webkit-transition: all .3s ease-in;
+    background-size: 288px;
+
+}
+.meepeed{
+    background-position: -68px -125px;
+    width: 108px;
+    height: 79px;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    margin-left: 146px;
+    top: -9px;
+    -webkit-transform: scale(.6);
+    -webkit-transition: all .3s ease-in;
+    opacity: 0;
+    display: none;
+    /* display: inline-block; */
+    /* display: inline-block; */
+    /* display: inline-block; */
+    /*display: inline-block; *//* Display icon as inline block */
+}
+
+.animateMeep{
+    margin-left: 119px;
+    opacity: 1;
+    display: block;
+}
+
+.sprite_nike {
+    background: url('images/spriteNew.png') no-repeat 0 0;
+    background-size: 244px 205px;
+    width: 0;
+    height: 0;
+}
+
+.redRound{
+    background-position: -9px -46px;
+    width: 5px;
+    height: 5px;
+    float: left;
+    z-index: 3;
+    padding-right: 7px;
+    display: inline-block;
+
+}
+.blackRound{
+    display: inline-block;
+    background-position: -15px -46px;
+    width: 5px;
+    height: 5px;
+    float: left;
+    z-index: 3;
+    padding-right: 7px;
+}
+.countGenerator{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: -118px;
+    left: 247px;
+}
+
+.shareIcon{
+    background-position: -9px -23px;
+    width: 19px;
+    height: 14px;
+    position: relative;
+    left: 71px;
+    top: 175px;
+    width: 25px;
+    height: 18px;
+
+}
+
+
+.shareContainer{
+    background-position: -46px -98px;
+    width: 138px;
+    height: 102px;
+    position: relative;
+    top: 56px;
+    left: 18px;
+    z-index: 3;
+    -webkit-transition: all .3s ease-in;
+}
+
+.hideCont {
+    opacity: 0;
+}
+
+
+.nikeShare{
+    background-position: -192px -62px;
+    width: 38px;
+    height: 36px;
+    position: absolute;
+    left: 262px;
+    top: 11px;
+    -webkit-transform: scale(1.25);
+}
+
+
+
+.facebook {
+    background-position:  -47px -66px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    left: 10px;
+}
+.twitter {
+    background-position: -91px -66px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    left: 47px;
+}
+.pinterest {
+    background-position: -136px -65px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 81px;
+}
+.whatsapp {
+    background-position: -2px -142px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+}
+.sms {
+    background-position: -91px -23px;;
+    width: 24px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    left: 47px;
+}
+.mail {
+    background-position: -136px -23px;
+    width: 24px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    left: 47px;
+}
+
+
+.sprit_meep{
+    background: url('images/sprite.png') no-repeat 0 0;
+    background-size: 244px 200px;
+    width: 0;
+    height: 0;
+}
+
+.meep{
+    background-position: -1px -61px;
+    width: 24px;
+    height: 23px;
+    display: inline-block;
+    position: absolute;
+    top: 11px;
+    left: 114px;
+}
+
+.umMeeped{
+    background-position: -37px -59px;
+    width: 49px;
+    height: 42px;
+    display: inline-block;
+    position: absolute;
+    top: 9px;
+    left: 245px;
+}
+
+.hideMeep{
+    display: none;
+}
+
+.showMeeped{
+    display: block;
+}
+
+.hideMeeped{
+    display: none;
+}
