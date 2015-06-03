@@ -1,24 +1,31 @@
 var casper = require('casper').create({
+//    onResourceReceived: resRecv
 });
 var mouse = require("mouse").create(casper);
 
 casper.start('http://localhost:3000/', function() {
-    this.mouse.down("#innerContainer");
-//    this.mouse.down(50, 50);
-    casper.on('step.error complete.error', function(error) {
-        this.log('alert called');
-        throw error;
+    casper.on('resource.requested', function(req,resource) {
+        console.log(resource);
+        this.echo(JSON.stringify(req, null, 4));
     });
+    casper.on('resource.received', function(resource) {
+        this.echo(JSON.stringify(resource, null, 4));
+    });
+
+    this.mouse.down("#innerContainer");
+
     casper.thenEvaluate(function(){
-        __utils__.echo('start');
-
-        __utils__.echo('middle');
-
         var element = document.querySelector('#hello')
         __utils__.echo(element.id);
     });
 
+
 });
+debugger;
+
+
+
+
 
 
 

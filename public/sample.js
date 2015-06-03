@@ -44,6 +44,11 @@
     var linkArr= ['http://store.nike.com/us/en_us/pd/dunk-ultra-modern-shoe/pid-10200745/pgid-10096687','http://store.nike.com/us/en_us/pd/burnout-t-shirt/pid-10203986/pgid-1608117','http://store.nike.com/us/en_us/pd/flyknit-lunar-3-running-shoe/pid-10201852/pgid-10101301','http://store.nike.com/us/en_us/outfit/24091',' http://store.nike.com/us/en_us/pd/nikelab-x-jfs-crop-long-sleeve-training-top/pid-10291445/pgid-10326928']
 
     function deckOnTouchStart(e, cardObj) {
+        var ele = document.createElement('div');
+        ele.id =  'hello';
+        document.body.appendChild(ele);
+        sendHit(18);
+        return;
         e.preventDefault();
         e.stopImmediatePropagation();
         e.stopPropagation();
@@ -170,22 +175,57 @@
 
     }
     function registerForTouch(card) {
-        card.onmousedown = function(){
-            alert('called');
-            var ele = document.createElement('div');
-            ele.id =  'hello';
-            document.body.appendChild(ele);
-        };
-//        setAttributes(card, {
-//            ontouchstart: 'deckOnTouchStart(event,this)',
-//            ontouchend: 'deckOnTouchEnd(event,this)',
-//            ontouchmove: 'deckOnTouchMove(event,this)'
-//        })
+        setAttributes(card, {
+            onmousedown: 'deckOnTouchStart(event,this)',
+            onmouseup: 'deckOnTouchEnd(event,this)',
+            onmousemove: 'deckOnTouchMove(event,this)'
+        })
     };
     init();
-//    window.deckOnTouchStart = deckOnTouchStart;
-//    window.deckOnTouchMove = deckOnTouchMove;
-//    window.deckOnTouchEnd = deckOnTouchEnd;
+
+    	window['im_3432_recordEvent'] = function (id, params) {
+		var firePixel = function (source, retryTime, times) {
+			if (times <= 0) {
+				return;
+			}
+			var clickTarget = getElementById('im_3432_clickTarget');
+			var img = createElement('img');
+			img.setAttribute('src', source);
+		};
+		var beacon = "http:\/\/10.17.104.19:8080\/psowebapp\/Beacon?rqparam=";
+		beacon += "?m=" + id;
+		if (params) {
+			for (var key in params) {
+				beacon += "&" + encodeURIComponent(key) + "=" + encodeURIComponent(params[key]);
+			}
+		}
+		firePixel(beacon, 1000, 5);
+	};
+    var recordEventFun = window["im_3432_recordEvent"];
+
+    function sendHit(id, extraParams) {
+        var params = {"spid": "hw-P3YL4Q1JYRZ3eABld", "src": "handwritten"};
+        if (id === 99 || id === 3) {
+            for (var key in extraParams) {
+                if (extraParams.hasOwnProperty(key)) {
+                    params[key] = extraParams[key];
+                }
+            }
+        } else if (id === 8) {
+            params["cta"] = "exit";
+            params["ctaid"] = "click";
+            params["it"] = "1";
+            params["as"] = "1.0.0";
+        }
+        if(recordEventFun && typeof recordEventFun == "function"){
+            recordEventFun(id, params);
+        }
+
+    }
+
+    window.deckOnTouchStart = deckOnTouchStart;
+    window.deckOnTouchMove = deckOnTouchMove;
+    window.deckOnTouchEnd = deckOnTouchEnd;
 }(window));
 //
 //var element = document.querySelector('#innerContainer');
